@@ -44,26 +44,26 @@ public class Person {
     }
     public void setNumb(String Numb)
     {
-        if (Numb.length() == 11)
+        if (checkNumb(Numb))
         {
-            for (int i = 2; i < 3; i++) {
-                char c = Numb.charAt(i);
-                if (c == '0' || c == '1' || c == '2' || c == '5') {
-                    this.Numb = Numb;
-                } else {
-                    System.out.println("Invalid");
-                }
-
+            this.Numb = Numb;
+        }
+        else {
+            System.out.println("Invalid");
+        }
+    }
+    public boolean checkNumb(String Numb) {
+        for (int i = 0; i < Numb.length(); i++) {
+            char c = Numb.charAt(i);
+            if ((Numb.length() == 11 ) && (c == '0' || c == '1' || c == '2' || c == '5')) {
+                return true;  // Return true if the condition is met
             }
         }
-        else
-        {
-            System.out.println("Under 11 Digits");
-        }
+        return false;  // Return false if the condition is not met for all characters
     }
     public String getNumb()
     {
-        return Numb;
+        return Numb==null?"no phone number has been added":Numb;
     }
 
 }
