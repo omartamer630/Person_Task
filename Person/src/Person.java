@@ -78,8 +78,7 @@ public class Person {
     public boolean checkEmail(String email)
     {
         String regex = "[a-zA-z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-        boolean checker = email.matches(regex);
-        return checker;
+        return email.matches(regex);
     }
     public String getEmail()
     {
