@@ -3,9 +3,8 @@
 public class Person {
     private String name ="";
     private int age;
-    private  String email ="";
     private String Numb ="";
-
+    private  String email ="";
     public void setName(String name) {
         if(CheckName(name)) // Name Validation
         {
@@ -64,6 +63,27 @@ public class Person {
     public String getNumb()
     {
         return Numb==null?"no phone number has been added":Numb;
+    }
+
+    public void setEmail(String email)
+    {
+        if (checkEmail(email))
+        {
+            this.email = email;
+        }
+        else {
+            System.out.println("Invalid");
+        }
+    }
+    public boolean checkEmail(String email)
+    {
+        String regex = "[a-zA-z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        boolean checker = email.matches(regex);
+        return checker;
+    }
+    public String getEmail()
+    {
+        return email;
     }
 
 }
