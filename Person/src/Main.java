@@ -4,85 +4,174 @@ public class Main {
     {
         Scanner Sc = new Scanner(System.in);
         Person obj = new Person();
-        BirthdateValidator birth = new BirthdateValidator();
+
         System.out.println("1 -> New Profile \n 2 -> Edit Your Profile \n 3 -> Delete Your profile");
-        String choice = Sc.next();
-        String name = null, Birth = null, Numb = null, email= null;
+        int userSetting = Sc.nextInt();
+        int editChoice = Sc.nextInt(); //
+
+        String name = "", Birth = "", Numb = "", email= "";
         int age = 0;
-        switch (choice) {
-            case "1":
-                System.out.println("Enter your name :");
+
+        if (userSetting == 1) {
+            newProfile();
+        } else if (userSetting == 2) {
+            editProfile(editChoice);
+        } else if (userSetting == 3) {
+            deleteProfile();
+        } else {
+            // print error message.
+            System.out.println("InValid Option!");
+        }
+
+    }
+
+/**
+ * 1- name  (20)
+ 2- age (40)
+ 3- email (omartamer@gmail.com)
+ 4- personal number (11 digit)
+ 5- birthdate (yyyy/mm/dd) class
+ */
+
+    private static Person newProfile () {
+        // Name
+        Scanner Sc = new Scanner(System.in);
+        Person userProfile = new Person();
+
+
+        System.out.println("Enter your name: ");
+        String name = Sc.next();
+
+        while (userProfile.CheckName(name) == false) {
+            System.out.println("Re-enter Correctly: ");
+            name = Sc.next();
+        }
+
+        userProfile.setName(name);
+
+        System.out.println("Enter your  number :");
+        String number = Sc.next();
+
+        while (userProfile.checkNumb(number) == false) {
+            System.out.println("Re-enter Correctly: ");
+            number = Sc.next();
+        }
+
+        userProfile.setNumb(number);
+
+        System.out.println("Enter your  email :");
+        String email = Sc.next();
+
+        while (userProfile.checkEmail(email) == false){
+            System.out.println("Re-enter Correctly: ");
+            email = Sc.next();
+        }
+
+        userProfile.setEmail(email);
+
+        System.out.println("Enter your  age :");
+        int age = Sc.nextInt();
+
+        while (userProfile.checkAge(age) == false){
+            System.out.println("Re-enter Correctly: ");
+        }
+
+        userProfile.setAge(age);
+
+        System.out.println("Enter your new BirthDate (YYYY/MM/DD) :");
+        String Birth = Sc.next();
+
+        while (userProfile.birthDate.checkBirth(Birth) == false){
+            System.out.println("Re-enter Correctly: ");
+            Birth = Sc.next();
+        }
+
+        userProfile.birthDate.setBirthDate(Birth);
+
+        return userProfile;
+    }
+    private static void editProfile(int userEditchoice) {
+        Scanner Sc = new Scanner(System.in);
+        Person userProfile = new Person();
+
+        System.out.println(" 1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate");
+        if (userEditchoice == 1){
+
+            System.out.println("Enter your new name: ");
+            String name = Sc.next();
+
+            while (userProfile.CheckName(name) == false) {
+                System.out.println("Re-enter Correctly: ");
                 name = Sc.next();
-                obj.setName(name);
-                System.out.println("Enter Your age :");
-                age = Sc.nextInt();
-                obj.setAge(age);
-                System.out.println("Enter Your Birthdate (YYYY/MM/DD) :");
-                Birth = Sc.next();
-                birth.setBirthDate(Birth);
-                System.out.println("Enter Your Number :");
-                Numb = Sc.next();
-                obj.setNumb(Numb);
-                System.out.println("Enter Your Email :");
+            }
+
+            userProfile.setName(name);
+
+        } else if (userEditchoice == 2) {
+
+            System.out.println("Enter your new number :");
+            String number = Sc.next();
+
+            while (userProfile.checkNumb(number) == false) {
+                System.out.println("Re-enter Correctly: ");
+                number = Sc.next();
+            }
+
+            userProfile.setNumb(number);
+
+        } else if (userEditchoice == 3) {
+
+            System.out.println("Enter your new email :");
+            String email = Sc.next();
+
+            while (userProfile.checkEmail(email) == false){
+                System.out.println("Re-enter Correctly: ");
                 email = Sc.next();
-                obj.setEmail(email);
-                break;
-            case "2":
-                if((name != null) && (Numb != null) && (Birth != null) && (email != null) &&(age != 0)){
-                    System.out.println("Enter what you want to edit (name , number , birthdate , email , age ).");
-                    String choice_2 = Sc.next();
-                    boolean exit = true;
-                    while(exit)
-                    {
-                        switch (choice_2) {
-                            case "name":
-                                System.out.println("Enter your new name :");
-                                name = Sc.next();
-                                obj.setName(name);
-                                break;
-                            case "number":
-                                System.out.println("Enter your new number :");
-                                Numb = Sc.next();
-                                obj.setNumb(Numb);
-                                break;
-                            case "birthdate":
-                                System.out.println("Enter your new BirthDate :");
-                                Birth = Sc.next();
-                                birth.setBirthDate(Birth);
-                                break;
-                            case "email":
-                                System.out.println("Enter your new email :");
-                                email = Sc.next();
-                                obj.setEmail(email);
-                                break;
-                            case "age":
-                                System.out.println("Enter your new age :");
-                                age = Sc.nextInt();
-                                obj.setAge(age);
-                                break;
-                        }
-                        System.out.println("Want To edit anything else ? (Type 'true' to reedit):");
-                        exit = Sc.nextBoolean();
-                    }
-                }
-                else {
-                    System.out.println("You Don't have any Profile.");
-                }
-                break;
-            case "3":
-                System.out.println("Are you Sure? (Type 'yes' to confirm):");
-                String confirmation = Sc.next();
-                if (confirmation.equalsIgnoreCase("yes")) {
-                    obj.setName(null);
-                    obj.setAge(0);
-                    birth.setBirthDate(null);
-                    obj.setNumb(null);
-                    obj.setEmail(null);
-                    System.out.println("Profile deleted.");
-                } else {
-                    System.out.println("Deletion canceled.");
-                }
-                break;
+            }
+
+            userProfile.setEmail(email);
+
+        } else if (userEditchoice == 4) {
+
+            System.out.println("Enter your  age :");
+            int age = Sc.nextInt();
+
+            while (userProfile.checkAge(age) == false){
+                System.out.println("Re-enter Correctly: ");
+            }
+
+            userProfile.setAge(age);
+
+        } else if (userEditchoice == 5) {
+
+            System.out.println("Enter your new BirthDate (YYYY/MM/DD) :");
+            String Birth = Sc.next();
+
+            while (userProfile.birthDate.checkBirth(Birth) == false){
+                System.out.println("Re-enter Correctly: ");
+                Birth = Sc.next();
+            }
+
+            userProfile.birthDate.setBirthDate(Birth);
+
+        }else {
+            System.out.println("InValid Option!");
         }
     }
-}
+    private static void deleteProfile() {
+        Person userProfile = new Person();
+        Scanner Sc = new Scanner(System.in);
+        System.out.println("Are you Sure? (Type 'yes' to confirm):");
+        String confirmation = Sc.next();
+        if (confirmation.equalsIgnoreCase("yes")) {
+                userProfile.setName("");
+            userProfile.setAge(0);
+            userProfile.birthDate.setBirthDate("");
+            userProfile.setNumb("");
+            userProfile.setEmail("");
+                System.out.println("Profile deleted.");
+            } else {
+                System.out.println("Deletion canceled.");
+            }
+        }
+    }

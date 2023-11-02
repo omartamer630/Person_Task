@@ -1,9 +1,10 @@
-public class BirthdateValidator {
+public class BirthDate{
     private String birthDate = "";
 
     public void setBirthDate(String birthDate) {
         if (checkBirth(birthDate)) {
             this.birthDate = birthDate;
+            System.out.println("Valid");
         } else {
             System.out.println("Invalid");
         }

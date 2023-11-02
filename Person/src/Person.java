@@ -3,8 +3,9 @@
 public class Person {
     private String name ="";
     private int age;
-    private String Numb ="";
+    private String numb ="";
     private  String email ="";
+    public BirthDate birthDate = new BirthDate();
     public void setName(String name) {
         if(CheckName(name)) // Name Validation
         {
@@ -27,25 +28,34 @@ public class Person {
     }
     public void setAge(int age)
     {
-        if(age >= 20 && age <= 40)
+        if(checkAge(age))
         {
             this.age = age;
-            System.out.println("Appropriate");
+            System.out.println("Valid");
         }
         else
         {
             System.out.println("inAppropriate");
         }
     }
+    public boolean checkAge(int age)
+    {
+        if(age >= 20 && age <= 40)
+        {
+            return  true;
+        }
+        return false;
+    }
     public int getAge()
     {
         return age;
     }
-    public void setNumb(String Numb)
+    public void setNumb(String numb)
     {
-        if (checkNumb(Numb))
+        if (checkNumb(numb))
         {
-            this.Numb = Numb;
+            this.numb = numb;
+            System.out.println("Valid");
         }
         else {
             System.out.println("Invalid");
@@ -55,6 +65,7 @@ public class Person {
         for (int i = 0; i < Numb.length(); i++) {
             char c = Numb.charAt(i);
             if ((Numb.length() == 11 ) && (c == '0' || c == '1' || c == '2' || c == '5')) {
+
                 return true;  // Return true if the condition is met
             }
         }
@@ -62,7 +73,7 @@ public class Person {
     }
     public String getNumb()
     {
-        return Numb==null?"no phone number has been added":Numb;
+        return numb==null?"no phone number has been added":numb;
     }
 
     public void setEmail(String email)
@@ -70,6 +81,7 @@ public class Person {
         if (checkEmail(email))
         {
             this.email = email;
+            System.out.println("Valid");
         }
         else {
             System.out.println("Invalid");
