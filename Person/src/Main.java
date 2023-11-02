@@ -31,33 +31,38 @@ public class Main {
                 if((name != null) && (Numb != null) && (Birth != null) && (email != null) &&(age != 0)){
                     System.out.println("Enter what you want to edit (name , number , birthdate , email , age ).");
                     String choice_2 = Sc.next();
-                    switch (choice_2)
+                    boolean exit = true;
+                    while(exit)
                     {
-                        case "name":
-                            System.out.println("Enter your new name :");
-                            name = Sc.next();
-                            obj.setName(name);
-                            break;
-                        case "number":
-                            System.out.println("Enter your new number :");
-                            Numb = Sc.next();
-                            obj.setNumb(Numb);
-                            break;
-                        case "birthdate":
-                            System.out.println("Enter your new BirthDate :");
-                            Birth = Sc.next();
-                            birth.setBirthDate(Birth);
-                            break;
-                        case "email":
-                            System.out.println("Enter your new email :");
-                            email = Sc.next();
-                            obj.setEmail(email);
-                            break;
-                        case "age":
-                            System.out.println("Enter your new age :");
-                            age = Sc.nextInt();
-                            obj.setAge(age);
-                            break;
+                        switch (choice_2) {
+                            case "name":
+                                System.out.println("Enter your new name :");
+                                name = Sc.next();
+                                obj.setName(name);
+                                break;
+                            case "number":
+                                System.out.println("Enter your new number :");
+                                Numb = Sc.next();
+                                obj.setNumb(Numb);
+                                break;
+                            case "birthdate":
+                                System.out.println("Enter your new BirthDate :");
+                                Birth = Sc.next();
+                                birth.setBirthDate(Birth);
+                                break;
+                            case "email":
+                                System.out.println("Enter your new email :");
+                                email = Sc.next();
+                                obj.setEmail(email);
+                                break;
+                            case "age":
+                                System.out.println("Enter your new age :");
+                                age = Sc.nextInt();
+                                obj.setAge(age);
+                                break;
+                        }
+                        System.out.println("Want To edit anything else ? (Type 'true' to reedit):");
+                        exit = Sc.nextBoolean();
                     }
                 }
                 else {
