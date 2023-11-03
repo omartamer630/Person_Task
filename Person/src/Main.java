@@ -15,7 +15,7 @@ public class Main {
             newProfile();
         } else if (userSetting.equals("2")) {
             System.out.println(" 1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate");
-            String editChoice = Sc.next();
+            int editChoice = Sc.nextInt();
             editProfile(editChoice);
         } else if (userSetting.equals("3")) {
             deleteProfile();
@@ -75,6 +75,7 @@ public class Main {
 
         while (userProfile.checkAge(age) == false){
             System.out.println("Re-enter Correctly: ");
+            age = Sc.nextInt();
         }
 
         userProfile.setAge(age);
@@ -91,11 +92,11 @@ public class Main {
 
         return userProfile;
     }
-    private static void editProfile(String userEditchoice) {
+    private static void editProfile(int userEditchoice) {
         Scanner Sc = new Scanner(System.in);
         Person userProfile = new Person();
 
-        if (userEditchoice == "1"){
+        if (userEditchoice == 1){
 
             System.out.println("Enter your new name: ");
             String name = Sc.next();
@@ -107,7 +108,13 @@ public class Main {
 
             userProfile.setName(name);
 
-        } else if (userEditchoice == "2") {
+            System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
+            int editChoice = Sc.nextInt();
+            if (editChoice != 0) {
+                editProfile(editChoice);
+            }
+
+        } else if (userEditchoice == 2) {
 
             System.out.println("Enter your new number :");
             String number = Sc.next();
@@ -119,7 +126,13 @@ public class Main {
 
             userProfile.setNumb(number);
 
-        } else if (userEditchoice == "3") {
+            System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
+            int editChoice = Sc.nextInt();
+            if (editChoice != 0) {
+                editProfile(editChoice);
+            }
+
+        } else if (userEditchoice == 3) {
 
             System.out.println("Enter your new email :");
             String email = Sc.next();
@@ -131,18 +144,31 @@ public class Main {
 
             userProfile.setEmail(email);
 
-        } else if (userEditchoice == "4") {
+            System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
+            int editChoice = Sc.nextInt();
+            if (editChoice != 0) {
+                editProfile(editChoice);
+            }
+
+        } else if (userEditchoice == 4) {
 
             System.out.println("Enter your  age :");
             int age = Sc.nextInt();
 
             while (userProfile.checkAge(age) == false){
                 System.out.println("Re-enter Correctly: ");
+                age = Sc.nextInt();
             }
 
             userProfile.setAge(age);
 
-        } else if (userEditchoice == "5") {
+            System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
+            int editChoice = Sc.nextInt();
+            if (editChoice != 0) {
+                editProfile(editChoice);
+            }
+
+        } else if (userEditchoice == 5) {
 
             System.out.println("Enter your new BirthDate (YYYY/MM/DD) :");
             String Birth = Sc.next();
@@ -154,6 +180,12 @@ public class Main {
 
             userProfile.birthDate.setBirthDate(Birth);
 
+            System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
+            int editChoice = Sc.nextInt();
+            if (editChoice != 0) {
+                editProfile(editChoice);
+            }
+            
         }else {
             System.out.println("InValid Option!");
         }

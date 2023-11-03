@@ -10,11 +10,11 @@ public class Person {
         if(CheckName(name)) // Name Validation
         {
             this.name = name;
-            System.out.println("Valid");
+            System.out.println("Name: Added");
         }
         else
         {
-            System.out.println("InValid");
+            System.out.println("Name: InValid");
         }
 
     }
@@ -31,11 +31,11 @@ public class Person {
         if(checkAge(age))
         {
             this.age = age;
-            System.out.println("Valid");
+            System.out.println("Age: Added");
         }
         else
         {
-            System.out.println("inAppropriate");
+            System.out.println("Age: InValid");
         }
     }
     public boolean checkAge(int age)
@@ -55,16 +55,16 @@ public class Person {
         if (checkNumb(numb))
         {
             this.numb = numb;
-            System.out.println("Valid");
+            System.out.println("Number: Added");
         }
         else {
-            System.out.println("Invalid");
+            System.out.println("Number: Invalid");
         }
     }
-    public boolean checkNumb(String Numb) {
-        for (int i = 0; i < Numb.length(); i++) {
-            char c = Numb.charAt(i);
-            if ((Numb.length() == 11 ) && (c == '0' || c == '1' || c == '2' || c == '5')) {
+    public boolean checkNumb(String numb) {
+        for (int i = 0; i < numb.length(); i++) {
+            char c = numb.charAt(i);
+            if ((numb.length() == 11 ) && (c == '0' || c == '1' || c == '2' || c == '5')) {
 
                 return true;  // Return true if the condition is met
             }
@@ -81,10 +81,10 @@ public class Person {
         if (checkEmail(email))
         {
             this.email = email;
-            System.out.println("Valid");
+            System.out.println("Email: Added");
         }
         else {
-            System.out.println("Invalid");
+            System.out.println("Email: Invalid");
         }
     }
     public boolean checkEmail(String email)

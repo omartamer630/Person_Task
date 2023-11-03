@@ -4,9 +4,9 @@ public class BirthDate{
     public void setBirthDate(String birthDate) {
         if (checkBirth(birthDate)) {
             this.birthDate = birthDate;
-            System.out.println("Valid");
+            System.out.println("BirthDate: Added");
         } else {
-            System.out.println("Invalid");
+            System.out.println("BirthDate: Invalid");
         }
     }
 
