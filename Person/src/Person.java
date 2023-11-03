@@ -89,7 +89,7 @@ public class Person {
     }
     public boolean checkEmail(String email)
     {
-        String regex = "[a-zA-z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         return email.matches(regex);
     }
     public String getEmail()
