@@ -3,7 +3,8 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner Sc = new Scanner(System.in);
-        Person obj = new Person();
+        Person userProfile = new Person();
+        ArrayList<Person> data = new ArrayList<>();
 
         System.out.println(" 1 -> New Profile \n 2 -> Edit Your Profile \n 3 -> Delete Your profile");
         String userSetting = Sc.next();//
@@ -185,7 +186,7 @@ public class Main {
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
-            
+
         }else {
             System.out.println("InValid Option!");
         }

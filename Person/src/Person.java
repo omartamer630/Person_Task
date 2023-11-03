@@ -24,7 +24,11 @@ public class Person {
     }
     public boolean CheckName(String name) // Validation Process
     {
-        return name.length() > 0 && name.length() <= 20;
+        String regex = "^[A-Za-z]+$";
+        if ((name.length() > 0 && name.length() <= 20) && (name.matches(regex))) {
+            return true;
+        }
+        return false;
     }
     public void setAge(int age)
     {
