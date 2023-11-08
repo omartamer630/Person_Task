@@ -7,7 +7,7 @@ public class Main {
         ArrayList<Person> data = new ArrayList<>();
 
         System.out.println(" 1 -> New Profile \n 2 -> Edit Your Profile \n 3 -> Delete Your profile");
-        String userSetting = Sc.next();//
+        String userSetting = Sc.next();
 
         String name = "", Birth = "", Numb = "", email= "";
         int age = 0;
@@ -21,19 +21,11 @@ public class Main {
         } else if (userSetting.equals("3")) {
             deleteProfile();
         } else {
-            // print error message.
-            System.out.println("Invalid Option!");
+            System.out.println("Invalid Option!"); // print error message.
         }
 
     }
 
-/**
- * 1- name  (20)
- 2- age (40)
- 3- email (omartamer@gmail.com)
- 4- personal number (11 digit)
- 5- birthdate (yyyy/mm/dd) class
- */
 
     private static Person newProfile () {
         // Name
