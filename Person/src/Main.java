@@ -17,14 +17,8 @@ public class Main {
         if (userSetting.equals("1")) {
             data.add(newProfile());
             System.out.println(data);
-            System.out.println("Ready for a Profile Update?([yes]/no)");
-            confirm = Sc.next();
-            if(confirm.equals("no")){
-                System.out.println("No worries! Your profile remains unchanged.");
-            }
-            else{
-                continue;
-            }
+            System.out.println("Returning to main menu.");
+            continue;
         } else if (userSetting.equals("2")) {
             if (data.isEmpty()) {
                     System.out.println("Currently, you don't have any profiles. If you'd like to create a new profile, please enter '[yes]/n'.");
@@ -46,7 +40,7 @@ public class Main {
                 System.out.println(data);
             }
 
-        } else if (userSetting.equals("3")) {
+        } else if ((userSetting.equals("3")) && (!data.isEmpty())) {
             deleteProfile(data);
             System.out.println("Returning to main menu.");
             continue;
