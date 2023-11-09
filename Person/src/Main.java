@@ -26,14 +26,13 @@ public class Main {
 
     }
 
-
     private static Person newProfile () {
-        // Name
+        
         Scanner Sc = new Scanner(System.in);
         Person userProfile = new Person();
 
 
-        System.out.println("Enter your name: ");
+        System.out.println("Enter your name: "); //Name
         String name = Sc.next();
 
         while (userProfile.CheckName(name) == false) {
@@ -43,7 +42,7 @@ public class Main {
 
         userProfile.setName(name);
 
-        System.out.println("Enter your  number :");
+        System.out.println("Enter your  number :"); //Number
         String number = Sc.next();
 
         while (userProfile.checkNumb(number) == false) {
@@ -53,7 +52,7 @@ public class Main {
 
         userProfile.setNumb(number);
 
-        System.out.println("Enter your  email :");
+        System.out.println("Enter your  email :"); //Email
         String email = Sc.next();
 
         while (userProfile.checkEmail(email) == false){
@@ -63,7 +62,7 @@ public class Main {
 
         userProfile.setEmail(email);
 
-        System.out.println("Enter your  age :");
+        System.out.println("Enter your  age :"); //Age
         int age = Sc.nextInt();
 
         while (userProfile.checkAge(age) == false){
@@ -73,7 +72,7 @@ public class Main {
 
         userProfile.setAge(age);
 
-        System.out.println("Enter your new BirthDate (YYYY/MM/DD) :");
+        System.out.println("Enter your new BirthDate (YYYY/MM/DD) :"); //BirthDate
         String Birth = Sc.next();
 
         while (userProfile.birthDate.checkBirth(Birth) == false){
@@ -88,10 +87,10 @@ public class Main {
     private static void editProfile(int userEditchoice) {
         Scanner Sc = new Scanner(System.in);
         Person userProfile = new Person();
-
+        int editChoice;
         if (userEditchoice == 1){
 
-            System.out.println("Enter your new name: ");
+            System.out.println("Enter your new name: "); //Editing Name
             String name = Sc.next();
 
             while (userProfile.CheckName(name) == false) {
@@ -102,7 +101,7 @@ public class Main {
             userProfile.setName(name);
 
             System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
-            int editChoice = Sc.nextInt();
+            editChoice = Sc.nextInt();
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
@@ -120,7 +119,7 @@ public class Main {
             userProfile.setNumb(number);
 
             System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
-            int editChoice = Sc.nextInt();
+            editChoice = Sc.nextInt();
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
@@ -138,7 +137,7 @@ public class Main {
             userProfile.setEmail(email);
 
             System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
-            int editChoice = Sc.nextInt();
+            editChoice = Sc.nextInt();
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
@@ -156,7 +155,7 @@ public class Main {
             userProfile.setAge(age);
 
             System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
-            int editChoice = Sc.nextInt();
+            editChoice = Sc.nextInt();
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
@@ -174,7 +173,7 @@ public class Main {
             userProfile.birthDate.setBirthDate(Birth);
 
             System.out.println("0 -> to end  to edit Something else -> (1 -> Name , 2 -> Number , 3 -> Email , 4 -> Age , 5 -> BirthDate)");
-            int editChoice = Sc.nextInt();
+            editChoice = Sc.nextInt();
             if (editChoice != 0) {
                 editProfile(editChoice);
             }
