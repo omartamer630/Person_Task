@@ -100,5 +100,8 @@ public class Person {
     {
         return email;
     }
+    public String toString() {
+        return"\nProfile info: \n"+ "Name: " + getName() + "\n"+ "Number: " + getNumb() + "\n" + "Email: " + getEmail() + "\n" + "Age: " + getAge() + "\n" + "BirthDate: " + birthDate.getBirthDate() + "\n";
+    }
 
 }
